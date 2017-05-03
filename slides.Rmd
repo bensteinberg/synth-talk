@@ -21,20 +21,51 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Sine wave
 
 ```{r}
+library(tibble)
 library(ggplot2)
 x <- seq(0,50,.1)
-d = data.frame(x=x,y=sin(x))
-ggplot(data = d) + geom_line(mapping = aes(x = x, y = y)) + xlab("time") + ylab("amplitude") + theme(axis.ticks = element_blank(), axis.text = element_blank())
+tb = tibble(x = x,y = sin(x))
+ggplot(tb, aes(x = x, y = y)) +
+  geom_line() + xlab("time") +
+  ylab("amplitude") +
+  theme(axis.ticks = element_blank(),
+        axis.text = element_blank())
 ```
 
 ## Another sine wave
 
 ```{r}
+library(tibble)
 library(ggplot2)
 x <- seq(0,50,.1)
-d = data.frame(x=x,y=-sin(x))
-ggplot(data = d) + geom_line(mapping = aes(x = x, y = y)) + xlab("time") + ylab("amplitude") + theme(axis.ticks = element_blank(), axis.text = element_blank())
+tb = tibble(x = x,y = -sin(x))
+ggplot(tb, aes(x = x, y = y)) +
+  geom_line() +
+  xlab("time") +
+  ylab("amplitude") +
+  theme(axis.ticks = element_blank(),
+        axis.text = element_blank())
 ```
+
+
+## All together now
+
+```{r}
+library(tibble)
+library(ggplot2)
+x <- seq(0,50,.1)
+tb <- tibble(x = x, y = sin(x), z = factor("a"))
+tb <- add_row(tb, x = x, y = -sin(x), z = factor("b"))
+tb <- add_row(tb, x = x, y = sin(x)-sin(x), z = factor("sum"))
+ggplot(tb, aes(x=x, y=y, color=z)) +
+  geom_line() +
+  xlab("time") +
+  ylab("amplitude") +
+  theme(axis.ticks = element_blank(),
+        axis.text = element_blank(),
+        legend.title = element_blank())
+```
+
 
 ## More waves {data-background="Waveforms.svg"}
 
