@@ -71,6 +71,14 @@ ggplot(tb, aes(x=x, y=y, color=z)) +
 
 ## {data-background="ADSR_parameter.svg"}
 
+## The frequency domain
+
+The Fourier Transform
+
+![DFT](DerivedDFT.png)
+
+## Filters
+
 ## "patch"
 
 **a.** _trans_. To connect by a temporary electrical, radio, or telephone connection; (also) to represent or simulate by means of temporary connections; usu. with _in_, _into_, _through_; _spec_.  _(a)_ to connect (a telephone call, or the person making it) to a telephone circuit;  _(b)_ to set the controls of (a synthesizer) so as to produce a particular sound; to produce (a sound) by this means. **to patch out:** to disconnect from a circuit by diverting current through a temporary connection.
